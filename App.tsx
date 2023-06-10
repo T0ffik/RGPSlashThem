@@ -36,10 +36,9 @@ function Section({children, title}: SectionProps): JSX.Element {
       <Text
         style={[
           styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
+          { color: isDarkMode ? Colors.white : Colors.black },
+        ]}
+      >
         {title}
       </Text>
       <Text
@@ -48,7 +47,8 @@ function Section({children, title}: SectionProps): JSX.Element {
           {
             color: isDarkMode ? Colors.light : Colors.dark,
           },
-        ]}>
+        ]}
+      >
         {children}
       </Text>
     </View>
