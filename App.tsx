@@ -24,6 +24,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import {MainPage} from './src/views/MainPage/MainPage';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -34,12 +35,8 @@ function Section({children, title}: SectionProps): JSX.Element {
   return (
     <View style={styles.sectionContainer}>
       <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
+        style={[styles.sectionTitle, {color: isDarkMode ? Colors.white : Colors.black}]}
+      >
         {title}
       </Text>
       <Text
@@ -48,7 +45,8 @@ function Section({children, title}: SectionProps): JSX.Element {
           {
             color: isDarkMode ? Colors.light : Colors.dark,
           },
-        ]}>
+        ]}
+      >
         {children}
       </Text>
     </View>
@@ -68,7 +66,8 @@ function App(): JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <ScrollView
+      <MainPage />
+      {/* <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
@@ -91,7 +90,7 @@ function App(): JSX.Element {
           </Section>
           <LearnMoreLinks />
         </View>
-      </ScrollView>
+      </ScrollView> */}
     </SafeAreaView>
   );
 }
