@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "585884195302",
+    "project_id": "rpgslashthem-c6f8b",
+    "storage_bucket": "rpgslashthem-c6f8b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:585884195302:android:e14898964773646e42de27",
+        "android_client_info": {
+          "package_name": "woat.RPGSlashThem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "585884195302-mpq7b0vm8k1co4rnd0ig8aup9nmk9ocb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8GbtSA9HL-ya9bTsWVwt7GlpXP7CVdvM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "585884195302-mpq7b0vm8k1co4rnd0ig8aup9nmk9ocb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
