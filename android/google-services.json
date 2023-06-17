@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "585884195302",
-    "project_id": "rpgslashthem-c6f8b",
-    "storage_bucket": "rpgslashthem-c6f8b.appspot.com"
+    "project_number": "105722621246",
+    "project_id": "rpgslashthem-3cdcf",
+    "storage_bucket": "rpgslashthem-3cdcf.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:585884195302:android:e14898964773646e42de27",
+        "mobilesdk_app_id": "1:105722621246:android:0bfbd9d5adbb6bef08906f",
         "android_client_info": {
-          "package_name": "woat.RPGSlashThem"
+          "package_name": "waot.RPGSlashThem"
         }
       },
       "oauth_client": [
         {
-          "client_id": "585884195302-mpq7b0vm8k1co4rnd0ig8aup9nmk9ocb.apps.googleusercontent.com",
+          "client_id": "105722621246-6d3ibhv66r7tcjonkvkv9qhqfqaud205.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD8GbtSA9HL-ya9bTsWVwt7GlpXP7CVdvM"
+          "current_key": "AIzaSyDmkVJ8iQgp1j3omX26LDPjkFT9v8IE-Rg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "585884195302-mpq7b0vm8k1co4rnd0ig8aup9nmk9ocb.apps.googleusercontent.com",
+              "client_id": "105722621246-6d3ibhv66r7tcjonkvkv9qhqfqaud205.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
