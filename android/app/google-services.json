@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "105722621246",
+    "project_id": "rpgslashthem-3cdcf",
+    "storage_bucket": "rpgslashthem-3cdcf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105722621246:android:fbc9a116ca93c67808906f",
+        "android_client_info": {
+          "package_name": "com.rpgslashthem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "105722621246-6d3ibhv66r7tcjonkvkv9qhqfqaud205.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmkVJ8iQgp1j3omX26LDPjkFT9v8IE-Rg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "105722621246-6d3ibhv66r7tcjonkvkv9qhqfqaud205.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
