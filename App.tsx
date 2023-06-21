@@ -25,7 +25,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import {LoginPage, MainPage} from './src/views'
+import {MainPage} from './src/components'
 import { colors } from './src/static/consts/colors';
 
 type SectionProps = PropsWithChildren<{
@@ -69,7 +69,6 @@ function App(): JSX.Element {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <MainPage />
-      {/* <LoginPage /> */}
       {/* <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
