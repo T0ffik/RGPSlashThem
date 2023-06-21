@@ -24,7 +24,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import {MainPage} from './src/views/MainPage/MainPage';
+import {MainPage} from './src/views/MainPage/MainPage'
 
 type SectionProps = PropsWithChildren<{
   title: string;
