@@ -2,26 +2,16 @@ import {Text, View} from 'react-native';
 import Logo from '../../../static/imgs/rst_logo.svg';
 import {styles} from './style';
 import {useState} from 'react';
-import {CustomButton, Main} from '../../../components';
+import {BackArrow, Login, Main, Register} from '../../../components';
 
 export const MainPage = () => {
   const [view, setView] = useState<'login' | 'main' | 'register'>('main');
   const renderView = () => {
     switch (view) {
       case 'login':
-        return (
-          <>
-            <Text>Logowanie</Text>
-            <CustomButton title="Goback" onPress={() => setView('main')} />
-          </>
-        );
+        return <Login />;
       case 'register':
-        return (
-          <>
-            <Text>rejestracja</Text>
-            <CustomButton title="Goback" onPress={() => setView('main')} />
-          </>
-        );
+        return <Register />;
       case 'main':
       default:
         return (
@@ -34,6 +24,7 @@ export const MainPage = () => {
   };
   return (
     <View style={styles.main}>
+      {view !== 'main' && <BackArrow goBack={() => setView('main')} />}
       <Logo width={340} height={75} />
       <Text style={styles.logoSubText}>Dla ludzi i innych stworów</Text>
       {renderView()}

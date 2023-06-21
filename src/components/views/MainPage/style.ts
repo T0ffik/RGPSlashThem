@@ -22,4 +22,7 @@ export const styles = StyleSheet.create({
     fontStyle: 'italic',
     fontWeight: '500',
   },
+  back: {
+    position: 'absolute',
+  },
 });
