@@ -65,5 +65,5 @@
     "resolveJsonModule": true
   },
   "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"],
-  "include": ["src", "env.d.ts", "index.d.ts"]
+  "include": ["src", "env.d.ts", "index.d.ts", "custom.d.ts"]
 }

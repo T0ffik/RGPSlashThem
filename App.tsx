@@ -24,7 +24,9 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import {MainPage} from './src/views/MainPage/MainPage'
+
+import {LoginPage, MainPage} from './src/views'
+import { colors } from './src/static/consts/colors';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -57,7 +59,7 @@ function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: colors.white,
   };
 
   return (
@@ -67,6 +69,7 @@ function App(): JSX.Element {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <MainPage />
+      {/* <LoginPage /> */}
       {/* <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
