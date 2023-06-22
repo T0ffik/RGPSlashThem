@@ -3,12 +3,13 @@ import {styles} from './styles';
 import {colors} from '../../../static/consts/colors';
 
 type TInputProps = {
+  placeholder: string;
   value: string;
   onChange: React.Dispatch<React.SetStateAction<string>>;
   additionalStyles?: any;
 };
 
-export const Input = ({value, onChange, additionalStyles}: TInputProps) => {
+export const Input = ({value, onChange, additionalStyles, placeholder}: TInputProps) => {
   return (
     <ImageBackground
       source={require('../../../static/imgs/inputBackground.png')}
@@ -17,7 +18,7 @@ export const Input = ({value, onChange, additionalStyles}: TInputProps) => {
     >
       <TextInput
         style={styles.input}
-        placeholder={'Login'}
+        placeholder={placeholder}
         value={value}
         onChangeText={onChange}
         placeholderTextColor={colors.inputPlaceholder}
