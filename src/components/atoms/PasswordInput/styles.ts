@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
     height: 41,
     width: 370,
     paddingLeft: 10,
+    fontWeight: 'bold',
   },
   icon: {
     position: 'absolute',

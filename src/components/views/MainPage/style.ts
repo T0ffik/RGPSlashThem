@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     marginBottom: 83,
     fontSize: 20,
     color: '#000',
-    fontFamily: 'JosefinSans-Regular',
+    fontFamily: 'JosefinSans',
     fontStyle: 'italic',
     fontWeight: '500',
   },
