@@ -7,13 +7,15 @@ import {colors} from '../../../static/consts/colors';
 
 type TPasswordInputProps = {
   value: string;
-  onChange: React.Dispatch<React.SetStateAction<string>>;
+  onChange: (e: string | React.ChangeEvent<any>) => void;
+  onBlur: (e: any) => void;
   additionalStyles?: any;
 };
 
 export const PasswordInput = ({
   value,
   onChange,
+  onBlur,
   additionalStyles,
 }: TPasswordInputProps) => {
   const [hidden, setHidden] = useState(true);
@@ -33,6 +35,7 @@ export const PasswordInput = ({
         onChangeText={onChange}
         secureTextEntry={hidden}
         placeholderTextColor={colors.inputPlaceholder}
+        onBlur={onBlur}
       />
     </ImageBackground>
   );
