@@ -1,17 +1,15 @@
-import {Pressable, Text, View} from 'react-native';
+import {Pressable, PressableProps, Text} from 'react-native';
+import {memo} from 'react';
 import {styles} from './style';
 
-interface ICustomButtonProps {
+type TCustomButtonProps = PressableProps & {
   title: string;
-  onPress: () => void;
-}
+};
 
-export const CustomButton = ({title, onPress}: ICustomButtonProps) => {
+export const CustomButton = memo(({onPress, title}: TCustomButtonProps) => {
   return (
-    <Pressable onPress={onPress}>
-      <View style={[styles.button, styles.elevation]}>
-        <Text style={styles.buttonText}>{title}</Text>
-      </View>
+    <Pressable onPress={onPress} style={[styles.button]}>
+      <Text style={styles.buttonText}>{title}</Text>
     </Pressable>
   );
-};
+});

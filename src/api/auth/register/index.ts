@@ -1,1 +1,1 @@
-export * from './onRegister';
+export * from './registerUser';

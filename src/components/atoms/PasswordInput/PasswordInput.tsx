@@ -1,20 +1,17 @@
-import {TextInput, ImageBackground, Pressable} from 'react-native';
+import {TextInput, ImageBackground, Pressable, TextInputProps} from 'react-native';
 import {styles} from './styles';
 import {useState} from 'react';
 import IconEyeOn from '../../../static/icons/IconEyeOn.svg';
 import IconEyeOff from '../../../static/icons/IconEyeOff.svg';
 import {colors} from '../../../static/consts/colors';
 
-type TPasswordInputProps = {
-  value: string;
-  onChange: (e: string | React.ChangeEvent<any>) => void;
-  onBlur: (e: any) => void;
+type TPasswordInputProps = TextInputProps & {
   additionalStyles?: any;
 };
 
 export const PasswordInput = ({
   value,
-  onChange,
+  onChangeText,
   onBlur,
   additionalStyles,
 }: TPasswordInputProps) => {
@@ -32,7 +29,7 @@ export const PasswordInput = ({
         style={styles.input}
         placeholder={hidden ? '******' : 'Hasło'}
         value={value}
-        onChangeText={onChange}
+        onChangeText={onChangeText}
         secureTextEntry={hidden}
         placeholderTextColor={colors.inputPlaceholder}
         onBlur={onBlur}

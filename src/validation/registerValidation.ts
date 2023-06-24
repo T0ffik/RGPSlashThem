@@ -1,5 +1,4 @@
 import * as Yup from 'yup';
-
 export const SignInSchema = Yup.object().shape({
   login: Yup.string()
     .min(3, 'Za krótkie')

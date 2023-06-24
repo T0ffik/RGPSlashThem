@@ -1,1 +1,1 @@
-export * from './InputErrorMessage';
+export * from './CustomText';

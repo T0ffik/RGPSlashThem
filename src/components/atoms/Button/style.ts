@@ -10,14 +10,12 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
+    elevation: 2,
+    shadowColor: '#000000',
   },
   buttonText: {
     color: 'black',
     fontSize: 20,
     fontWeight: '400',
-  },
-  elevation: {
-    elevation: 2,
-    shadowColor: '#000000',
   },
 });

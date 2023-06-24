@@ -3,5 +3,7 @@
   "bracketSpacing": false,
   "trailingComma": "all",
   "printWidth": 90,
-  "arrowParens": "avoid"
+  "arrowParens": "avoid",
+  "rangeEnd": null,
+  "rangeStart": 0
 }

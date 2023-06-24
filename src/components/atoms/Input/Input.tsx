@@ -1,25 +1,22 @@
-import {TextInput, ImageBackground} from 'react-native';
+import {TextInput, ImageBackground, TextInputProps} from 'react-native';
 import {styles} from './styles';
 import {colors} from '../../../static/consts/colors';
 
-type TInputProps = {
-  placeholder: string;
-  value: string;
-  onChange: (e: string | React.ChangeEvent<any>) => void;
-  onBlur: (e: any) => void;
+type TInputProps = TextInputProps & {
   additionalStyles?: any;
 };
 
+const backgroundImage = '../../../static/imgs/inputBackground.png';
 export const Input = ({
   value,
-  onChange,
+  onChangeText,
   onBlur,
   additionalStyles,
   placeholder,
 }: TInputProps) => {
   return (
     <ImageBackground
-      source={require('../../../static/imgs/inputBackground.png')}
+      source={require(backgroundImage)}
       resizeMode="cover"
       style={additionalStyles}
     >
@@ -27,7 +24,7 @@ export const Input = ({
         style={styles.input}
         placeholder={placeholder}
         value={value}
-        onChangeText={onChange}
+        onChangeText={onChangeText}
         onBlur={onBlur}
         placeholderTextColor={colors.inputPlaceholder}
       />
