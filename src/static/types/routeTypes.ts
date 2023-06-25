@@ -3,6 +3,7 @@ export enum ROUTES {
   MAIN = 'Main',
   LOGIN = 'Login',
   REGISTER = 'Register',
+  HOME = 'Home',
 }
 
 export type RootStackParamList = {
@@ -10,4 +11,5 @@ export type RootStackParamList = {
   Main: undefined;
   Login: undefined;
   Register: undefined;
+  Home: undefined;
 };

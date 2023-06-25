@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import {CustomButton} from '../../atoms';
 import {View} from 'react-native';
-import {colors} from '../../../static/consts/colors';
 import {useNavigation} from '@react-navigation/native';
 import {ROUTES, RootStackParamList} from '../../../static/types/routeTypes';
 import {StackNavigationProp} from '@react-navigation/stack';

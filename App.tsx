@@ -6,13 +6,14 @@
  */
 
 import React from 'react';
-import {useColorScheme, View} from 'react-native';
+import {View} from 'react-native';
 
-import {MainPage} from './src/components';
+import {HomeView, MainPage} from './src/components';
 import {colors} from './src/static/consts/colors';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {ROUTES} from './src/static/types/routeTypes';
+import auth from '@react-native-firebase/auth';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +26,19 @@ function App(): JSX.Element {
             headerShown: false,
           }}
         >
-          <Stack.Screen name={ROUTES.WELCOME} component={MainPage} />
+          {auth().currentUser === null ? (
+            <Stack.Screen
+              name={ROUTES.WELCOME}
+              component={MainPage}
+              options={{animation: 'fade'}}
+            />
+          ) : (
+            <Stack.Screen
+              name={ROUTES.HOME}
+              component={HomeView}
+              options={{animation: 'fade'}}
+            />
+          )}
         </Stack.Navigator>
       </NavigationContainer>
     </View>

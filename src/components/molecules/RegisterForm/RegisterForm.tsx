@@ -8,6 +8,9 @@ import {registerUser} from '../../../api';
 import {useNavigation} from '@react-navigation/native';
 import {useEffect} from 'react';
 import {globalStyles} from '../../../utils/globalStyles';
+import Animated, {SlideInUp, SlideOutDown} from 'react-native-reanimated';
+import {ROUTES, RootStackParamList} from '../../../static/types/routeTypes';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 type TRagisterFormProps = {
   setIndex: React.Dispatch<React.SetStateAction<number>>;
@@ -19,7 +22,7 @@ type FormValues = {
 };
 
 export const RegisterForm = ({setIndex}: TRagisterFormProps) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   const {
     control,
@@ -36,6 +39,8 @@ export const RegisterForm = ({setIndex}: TRagisterFormProps) => {
   useEffect(() => {
     if (navigation.isFocused()) {
       setIndex(2);
+    } else {
+      SlideInUp;
     }
   }, [navigation.isFocused()]);
   return (
@@ -53,9 +58,11 @@ export const RegisterForm = ({setIndex}: TRagisterFormProps) => {
           )}
           name="login"
         />
-        {errors.login && (
-          <CustomText variant={Variatns.ERROR} text={errors.login.message} />
-        )}
+        <View>
+          {errors.login && (
+            <CustomText variant={Variatns.ERROR} text={errors.login.message} />
+          )}
+        </View>
       </View>
       <View style={styles.inputArea}>
         <Controller
@@ -70,9 +77,11 @@ export const RegisterForm = ({setIndex}: TRagisterFormProps) => {
           )}
           name="mail"
         />
-        {errors.mail && (
-          <CustomText variant={Variatns.ERROR} text={errors.mail.message} />
-        )}
+        <View>
+          {errors.mail && (
+            <CustomText variant={Variatns.ERROR} text={errors.mail.message} />
+          )}
+        </View>
       </View>
       <View style={styles.inputArea}>
         <Controller
@@ -82,11 +91,14 @@ export const RegisterForm = ({setIndex}: TRagisterFormProps) => {
           )}
           name="password"
         />
-        {errors.password && (
-          <CustomText variant={Variatns.ERROR} text={errors.password.message} />
-        )}
+        <View>
+          {errors.password && (
+            <CustomText variant={Variatns.ERROR} text={errors.password.message} />
+          )}
+        </View>
       </View>
       <CustomButton onPress={handleSubmit(onSubmit)} title="Zarejestruj" />
+      <CustomButton title="go back" onPress={() => navigation.navigate(ROUTES.MAIN)} />
     </View>
   );
 };

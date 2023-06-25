@@ -7,7 +7,7 @@ import {useNavigation} from '@react-navigation/native';
 import {globalStyles} from '../../../utils/globalStyles';
 import {useState} from 'react';
 import {ROUTES, RootStackParamList} from '../../../static/types/routeTypes';
-import {StackNavigationProp} from '@react-navigation/stack';
+import {StackNavigationProp, createStackNavigator} from '@react-navigation/stack';
 
 const Tab = createNativeStackNavigator();
 
@@ -26,11 +26,13 @@ export const MainPage = () => {
             headerShown: false,
           }}
         >
-          <Tab.Screen name={ROUTES.MAIN}>{() => <Main setIndex={setIndex} />}</Tab.Screen>
-          <Tab.Screen name={ROUTES.LOGIN}>
+          <Tab.Screen name={ROUTES.MAIN} options={{animation: 'fade'}}>
+            {() => <Main setIndex={setIndex} />}
+          </Tab.Screen>
+          <Tab.Screen name={ROUTES.LOGIN} options={{animation: 'fade'}}>
             {() => <LoginForm setIndex={setIndex} />}
           </Tab.Screen>
-          <Tab.Screen name={ROUTES.REGISTER}>
+          <Tab.Screen name={ROUTES.REGISTER} options={{animation: 'fade'}}>
             {() => <RegisterForm setIndex={setIndex} />}
           </Tab.Screen>
         </Tab.Navigator>

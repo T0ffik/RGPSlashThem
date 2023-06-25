@@ -8,6 +8,8 @@ import {LogInSchema} from '../../../validation';
 import {useNavigation} from '@react-navigation/native';
 import {useEffect} from 'react';
 import {globalStyles} from '../../../utils/globalStyles';
+import {ROUTES, RootStackParamList} from '../../../static/types/routeTypes';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 type TLoginFormProps = {
   setIndex: React.Dispatch<React.SetStateAction<number>>;
@@ -18,7 +20,7 @@ export const LoginForm = ({setIndex}: TLoginFormProps) => {
     mail: string;
     password: string;
   };
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   const {
     control,
@@ -52,9 +54,11 @@ export const LoginForm = ({setIndex}: TLoginFormProps) => {
           )}
           name="mail"
         />
-        {errors.mail && (
-          <CustomText variant={Variatns.ERROR} text={errors.mail.message} />
-        )}
+        <View>
+          {errors.mail && (
+            <CustomText variant={Variatns.ERROR} text={errors.mail.message} />
+          )}
+        </View>
       </View>
       <View style={styles.inputArea}>
         <Controller
@@ -64,11 +68,17 @@ export const LoginForm = ({setIndex}: TLoginFormProps) => {
           )}
           name="password"
         />
-        {errors.password && (
-          <CustomText variant={Variatns.ERROR} text={errors.password.message} />
-        )}
+        <View>
+          {errors.password && (
+            <CustomText variant={Variatns.ERROR} text={errors.password.message} />
+          )}
+        </View>
       </View>
       <CustomButton title="Zaloguj" onPress={handleSubmit(onSubmit)} />
+      <CustomButton
+        title="go back"
+        onPress={() => navigation.navigate(ROUTES.REGISTER)}
+      />
     </View>
   );
 };
