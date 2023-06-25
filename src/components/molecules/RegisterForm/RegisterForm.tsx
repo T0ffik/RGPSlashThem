@@ -1,20 +1,26 @@
-import {NativeSyntheticEvent, Text, TextInputChangeEventData, View} from 'react-native';
+import {View} from 'react-native';
 import {CustomButton, Input, CustomText, PasswordInput, Variatns} from '../..';
-// import {register} from '../../../api';
-import {Formik} from 'formik';
 import {SignInSchema} from '../../../validation';
 import {styles} from './styles';
-import {colors} from '../../../static/consts/colors';
 import {useForm, Controller} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {registerUser} from '../../../api';
+import {useNavigation} from '@react-navigation/native';
+import {useEffect} from 'react';
+import {globalStyles} from '../../../utils/globalStyles';
 
-export const RegisterForm = () => {
-  type FormValues = {
-    login: string;
-    mail: string;
-    password: string;
-  };
+type TRagisterFormProps = {
+  setIndex: React.Dispatch<React.SetStateAction<number>>;
+};
+type FormValues = {
+  login: string;
+  mail: string;
+  password: string;
+};
+
+export const RegisterForm = ({setIndex}: TRagisterFormProps) => {
+  const navigation = useNavigation();
+
   const {
     control,
     handleSubmit,
@@ -26,8 +32,14 @@ export const RegisterForm = () => {
   const onSubmit = (values: FormValues) => {
     registerUser(values);
   };
+
+  useEffect(() => {
+    if (navigation.isFocused()) {
+      setIndex(2);
+    }
+  }, [navigation.isFocused()]);
   return (
-    <View>
+    <View style={[globalStyles.navigationWrapper, {alignItems: 'center'}]}>
       <View style={styles.inputArea}>
         <Controller
           control={control}

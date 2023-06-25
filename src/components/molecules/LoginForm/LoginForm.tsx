@@ -5,12 +5,21 @@ import {styles} from './styles';
 import {loginUser} from '../../../api';
 import {useForm, Controller} from 'react-hook-form';
 import {LogInSchema} from '../../../validation';
+import {useNavigation} from '@react-navigation/native';
+import {useEffect} from 'react';
+import {globalStyles} from '../../../utils/globalStyles';
 
-export const LoginForm = () => {
+type TLoginFormProps = {
+  setIndex: React.Dispatch<React.SetStateAction<number>>;
+};
+
+export const LoginForm = ({setIndex}: TLoginFormProps) => {
   type FormValues = {
     mail: string;
     password: string;
   };
+  const navigation = useNavigation();
+
   const {
     control,
     handleSubmit,
@@ -22,8 +31,14 @@ export const LoginForm = () => {
   const onSubmit = (data: FormValues) => {
     loginUser(data);
   };
+
+  useEffect(() => {
+    if (navigation.isFocused()) {
+      setIndex(1);
+    }
+  }, [navigation.isFocused()]);
   return (
-    <View>
+    <View style={[globalStyles.navigationWrapper, {alignItems: 'center'}]}>
       <View style={styles.inputArea}>
         <Controller
           control={control}
