@@ -5,8 +5,8 @@ import {styles} from './styles';
 import {loginUser} from '../../../api';
 import {useForm, Controller} from 'react-hook-form';
 import {LogInSchema} from '../../../validation';
-import {useNavigation} from '@react-navigation/native';
-import {useEffect} from 'react';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import {useCallback, useEffect} from 'react';
 import {globalStyles} from '../../../utils/globalStyles';
 import {ROUTES, RootStackParamList} from '../../../static/types/routeTypes';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -34,11 +34,11 @@ export const LoginForm = ({setIndex}: TLoginFormProps) => {
     loginUser(data);
   };
 
-  useEffect(() => {
-    if (navigation.isFocused()) {
+  useFocusEffect(
+    useCallback(() => {
       setIndex(1);
-    }
-  }, [navigation.isFocused()]);
+    }, []),
+  );
   return (
     <View style={[globalStyles.navigationWrapper, {alignItems: 'center'}]}>
       <View style={styles.inputArea}>
@@ -54,11 +54,9 @@ export const LoginForm = ({setIndex}: TLoginFormProps) => {
           )}
           name="mail"
         />
-        <View>
-          {errors.mail && (
-            <CustomText variant={Variatns.ERROR} text={errors.mail.message} />
-          )}
-        </View>
+        {errors.mail && (
+          <CustomText variant={Variatns.ERROR} text={errors.mail.message} />
+        )}
       </View>
       <View style={styles.inputArea}>
         <Controller
@@ -68,11 +66,9 @@ export const LoginForm = ({setIndex}: TLoginFormProps) => {
           )}
           name="password"
         />
-        <View>
-          {errors.password && (
-            <CustomText variant={Variatns.ERROR} text={errors.password.message} />
-          )}
-        </View>
+        {errors.password && (
+          <CustomText variant={Variatns.ERROR} text={errors.password.message} />
+        )}
       </View>
       <CustomButton title="Zaloguj" onPress={handleSubmit(onSubmit)} />
       <CustomButton

@@ -5,8 +5,8 @@ import {styles} from './styles';
 import {useForm, Controller} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {registerUser} from '../../../api';
-import {useNavigation} from '@react-navigation/native';
-import {useEffect} from 'react';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import {useCallback, useEffect} from 'react';
 import {globalStyles} from '../../../utils/globalStyles';
 import Animated, {SlideInUp, SlideOutDown} from 'react-native-reanimated';
 import {ROUTES, RootStackParamList} from '../../../static/types/routeTypes';
@@ -36,13 +36,11 @@ export const RegisterForm = ({setIndex}: TRagisterFormProps) => {
     registerUser(values);
   };
 
-  useEffect(() => {
-    if (navigation.isFocused()) {
+  useFocusEffect(
+    useCallback(() => {
       setIndex(2);
-    } else {
-      SlideInUp;
-    }
-  }, [navigation.isFocused()]);
+    }, []),
+  );
   return (
     <View style={[globalStyles.navigationWrapper, {alignItems: 'center'}]}>
       <View style={styles.inputArea}>
@@ -58,11 +56,9 @@ export const RegisterForm = ({setIndex}: TRagisterFormProps) => {
           )}
           name="login"
         />
-        <View>
-          {errors.login && (
-            <CustomText variant={Variatns.ERROR} text={errors.login.message} />
-          )}
-        </View>
+        {errors.login && (
+          <CustomText variant={Variatns.ERROR} text={errors.login.message} />
+        )}
       </View>
       <View style={styles.inputArea}>
         <Controller
@@ -77,11 +73,9 @@ export const RegisterForm = ({setIndex}: TRagisterFormProps) => {
           )}
           name="mail"
         />
-        <View>
-          {errors.mail && (
-            <CustomText variant={Variatns.ERROR} text={errors.mail.message} />
-          )}
-        </View>
+        {errors.mail && (
+          <CustomText variant={Variatns.ERROR} text={errors.mail.message} />
+        )}
       </View>
       <View style={styles.inputArea}>
         <Controller
@@ -91,11 +85,9 @@ export const RegisterForm = ({setIndex}: TRagisterFormProps) => {
           )}
           name="password"
         />
-        <View>
-          {errors.password && (
-            <CustomText variant={Variatns.ERROR} text={errors.password.message} />
-          )}
-        </View>
+        {errors.password && (
+          <CustomText variant={Variatns.ERROR} text={errors.password.message} />
+        )}
       </View>
       <CustomButton onPress={handleSubmit(onSubmit)} title="Zarejestruj" />
       <CustomButton title="go back" onPress={() => navigation.navigate(ROUTES.MAIN)} />

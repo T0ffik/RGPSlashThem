@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
+import {useCallback} from 'react';
 import {CustomButton} from '../../atoms';
 import {View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {ROUTES, RootStackParamList} from '../../../static/types/routeTypes';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {globalStyles} from '../../../utils/globalStyles';
@@ -12,11 +12,11 @@ type TMainProps = {
 export const Main = ({setIndex}: TMainProps) => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
-  useEffect(() => {
-    if (navigation.isFocused()) {
+  useFocusEffect(
+    useCallback(() => {
       setIndex(0);
-    }
-  }, [navigation.isFocused()]);
+    }, []),
+  );
   return (
     <View
       style={[
