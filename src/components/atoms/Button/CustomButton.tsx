@@ -8,7 +8,7 @@ type TCustomButtonProps = PressableProps & {
 
 export const CustomButton = memo(({onPress, title}: TCustomButtonProps) => {
   return (
-    <Pressable onPress={onPress} style={[styles.button]}>
+    <Pressable onPress={onPress} style={styles.button}>
       <Text style={styles.buttonText}>{title}</Text>
     </Pressable>
   );

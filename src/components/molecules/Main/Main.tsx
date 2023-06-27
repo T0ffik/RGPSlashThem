@@ -5,6 +5,7 @@ import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {ROUTES, RootStackParamList} from '../../../static/types/routeTypes';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {globalStyles} from '../../../utils/globalStyles';
+import {styles} from './styles';
 
 type TMainProps = {
   setIndex: React.Dispatch<React.SetStateAction<number>>;
@@ -18,14 +19,7 @@ export const Main = ({setIndex}: TMainProps) => {
     }, []),
   );
   return (
-    <View
-      style={[
-        globalStyles.navigationWrapper,
-        {
-          alignItems: 'center',
-        },
-      ]}
-    >
+    <View style={styles.wrapper}>
       <CustomButton title="Logowanie" onPress={() => navigation.navigate(ROUTES.LOGIN)} />
       <CustomButton
         title="Rejestracja"

@@ -6,14 +6,12 @@ import {useForm, Controller} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {registerUser} from '../../../api';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import {useCallback, useEffect} from 'react';
-import {globalStyles} from '../../../utils/globalStyles';
-import Animated, {SlideInUp, SlideOutDown} from 'react-native-reanimated';
+import {Dispatch, useCallback} from 'react';
 import {ROUTES, RootStackParamList} from '../../../static/types/routeTypes';
 import {StackNavigationProp} from '@react-navigation/stack';
 
 type TRagisterFormProps = {
-  setIndex: React.Dispatch<React.SetStateAction<number>>;
+  setIndex: Dispatch<React.SetStateAction<number>>;
 };
 type FormValues = {
   login: string;
@@ -42,7 +40,7 @@ export const RegisterForm = ({setIndex}: TRagisterFormProps) => {
     }, []),
   );
   return (
-    <View style={[globalStyles.navigationWrapper, {alignItems: 'center'}]}>
+    <View style={styles.wrapper}>
       <View style={styles.inputArea}>
         <Controller
           control={control}
@@ -90,7 +88,6 @@ export const RegisterForm = ({setIndex}: TRagisterFormProps) => {
         )}
       </View>
       <CustomButton onPress={handleSubmit(onSubmit)} title="Zarejestruj" />
-      <CustomButton title="go back" onPress={() => navigation.navigate(ROUTES.MAIN)} />
     </View>
   );
 };

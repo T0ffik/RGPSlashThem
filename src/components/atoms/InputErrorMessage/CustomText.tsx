@@ -7,6 +7,7 @@ import Animated, {
   SlideInUp,
   SlideOutUp,
 } from 'react-native-reanimated';
+import {useMemo} from 'react';
 
 export enum Variatns {
   PRIMARY = 'primary',
@@ -15,12 +16,12 @@ export enum Variatns {
 }
 
 type TCustomText = {
-  text: string | undefined;
+  text?: string;
   variant: Variatns;
 };
 
 export const CustomText = ({text, variant}: TCustomText) => {
-  const getStyles = () => {
+  const style = useMemo(() => {
     switch (variant) {
       case Variatns.SECONDARY:
         return styles.secondary;
@@ -30,21 +31,14 @@ export const CustomText = ({text, variant}: TCustomText) => {
       default:
         return styles.primary;
     }
-  };
-  const style = getStyles();
-  const wrapper = () => {
-    if (variant === Variatns.ERROR) {
-      return (
-        <Animated.View
-          entering={FadeInUp.duration(200)}
-          exiting={FadeOutUp.duration(200)}
-        >
-          <Text style={style}>{text}</Text>
-        </Animated.View>
-      );
-    } else {
-      return <Text style={style}>{text}</Text>;
-    }
-  };
-  return wrapper();
+  }, [variant]);
+  if (variant === Variatns.ERROR) {
+    return (
+      <Animated.View entering={FadeInUp.duration(200)} exiting={FadeOutUp.duration(200)}>
+        <Text style={style}>{text}</Text>
+      </Animated.View>
+    );
+  }
+
+  return <Text style={style}>{text}</Text>;
 };

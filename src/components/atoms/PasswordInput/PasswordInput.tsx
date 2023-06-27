@@ -27,7 +27,7 @@ export const PasswordInput = ({
       </Pressable>
       <TextInput
         style={styles.input}
-        placeholder={hidden ? '******' : 'Hasło'}
+        placeholder={'******'}
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={hidden}

@@ -6,20 +6,19 @@ import {loginUser} from '../../../api';
 import {useForm, Controller} from 'react-hook-form';
 import {LogInSchema} from '../../../validation';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import {useCallback, useEffect} from 'react';
-import {globalStyles} from '../../../utils/globalStyles';
+import {Dispatch, useCallback, SetStateAction} from 'react';
 import {ROUTES, RootStackParamList} from '../../../static/types/routeTypes';
 import {StackNavigationProp} from '@react-navigation/stack';
 
 type TLoginFormProps = {
-  setIndex: React.Dispatch<React.SetStateAction<number>>;
+  setIndex: Dispatch<SetStateAction<number>>;
 };
 
+type FormValues = {
+  mail: string;
+  password: string;
+};
 export const LoginForm = ({setIndex}: TLoginFormProps) => {
-  type FormValues = {
-    mail: string;
-    password: string;
-  };
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   const {
@@ -40,7 +39,7 @@ export const LoginForm = ({setIndex}: TLoginFormProps) => {
     }, []),
   );
   return (
-    <View style={[globalStyles.navigationWrapper, {alignItems: 'center'}]}>
+    <View style={styles.wrapper}>
       <View style={styles.inputArea}>
         <Controller
           control={control}
@@ -71,10 +70,6 @@ export const LoginForm = ({setIndex}: TLoginFormProps) => {
         )}
       </View>
       <CustomButton title="Zaloguj" onPress={handleSubmit(onSubmit)} />
-      <CustomButton
-        title="go back"
-        onPress={() => navigation.navigate(ROUTES.REGISTER)}
-      />
     </View>
   );
 };

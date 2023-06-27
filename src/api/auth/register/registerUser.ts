@@ -20,5 +20,6 @@ export const registerUser = async ({mail, login, password}: TOnRegisterProps) =>
     if (err instanceof FirebaseError) {
       throw new Error(err.message);
     }
+    throw new Error('Ups, coś się wyjebało');
   }
 };

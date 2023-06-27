@@ -3,7 +3,7 @@ import BackArrowIcon from '../../../static/icons/BackArrow.svg';
 import {styles} from './styles';
 
 type TBackArrowProps = {
-  goBack: () => void;
+  goBack?: () => void;
 };
 
 export const BackArrow = ({goBack}: TBackArrowProps) => {
