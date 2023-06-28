@@ -5,23 +5,24 @@ import {styles} from './styles';
 import {useForm, Controller} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {registerUser} from '../../../api';
-import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import {Dispatch, useCallback} from 'react';
-import {ROUTES, RootStackParamList} from '../../../static/types/routeTypes';
-import {StackNavigationProp} from '@react-navigation/stack';
+import {useFocusEffect} from '@react-navigation/native';
+import {useCallback} from 'react';
+import {StackScreenProps} from '@react-navigation/stack';
+import {RootStackParamList, WelcomeStackParamList} from '~/static/types/routeTypes';
 
-type TRagisterFormProps = {
-  setIndex: Dispatch<React.SetStateAction<number>>;
-};
+type TRagisterFormProps = StackScreenProps<
+  WelcomeStackParamList,
+  'Register',
+  'MainStack'
+>;
 type FormValues = {
   login: string;
   mail: string;
   password: string;
 };
 
-export const RegisterForm = ({setIndex}: TRagisterFormProps) => {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-
+export const RegisterForm = ({navigation, route}: TRagisterFormProps) => {
+  const {setIndex} = route.params;
   const {
     control,
     handleSubmit,

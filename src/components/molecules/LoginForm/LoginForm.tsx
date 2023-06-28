@@ -5,22 +5,19 @@ import {styles} from './styles';
 import {loginUser} from '../../../api';
 import {useForm, Controller} from 'react-hook-form';
 import {LogInSchema} from '../../../validation';
-import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import {Dispatch, useCallback, SetStateAction} from 'react';
-import {ROUTES, RootStackParamList} from '../../../static/types/routeTypes';
-import {StackNavigationProp} from '@react-navigation/stack';
+import {useFocusEffect} from '@react-navigation/native';
+import {useCallback} from 'react';
+import {StackScreenProps} from '@react-navigation/stack';
+import {WelcomeStackParamList} from '~/static/types/routeTypes';
 
-type TLoginFormProps = {
-  setIndex: Dispatch<SetStateAction<number>>;
-};
+type TLoginFormProps = StackScreenProps<WelcomeStackParamList, 'Login', 'MainStack'>;
 
 type FormValues = {
   mail: string;
   password: string;
 };
-export const LoginForm = ({setIndex}: TLoginFormProps) => {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-
+export const LoginForm = ({navigation, route}: TLoginFormProps) => {
+  const {setIndex} = route.params;
   const {
     control,
     handleSubmit,

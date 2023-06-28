@@ -1,33 +1,29 @@
 import {HomeView, MainPage} from '../index';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {ROUTES} from '../../../static/types/routeTypes';
+import {ROUTES, RootStackParamList} from '../../../static/types/routeTypes';
 import auth from '@react-native-firebase/auth';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator<RootStackParamList>();
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const Navigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator
+      <Tab.Navigator
         screenOptions={{
           headerShown: false,
+          tabBarStyle: {display: 'none'},
         }}
       >
         {auth().currentUser === null ? (
-          <Stack.Screen
-            name={ROUTES.WELCOME}
-            component={MainPage}
-            options={{animation: 'fade'}}
-          />
+          <Tab.Screen name={ROUTES.WELCOME} component={MainPage} />
         ) : (
-          <Stack.Screen
-            name={ROUTES.HOME}
-            component={HomeView}
-            options={{animation: 'fade'}}
-          />
+          <Tab.Screen name={ROUTES.HOME} component={HomeView} />
         )}
-      </Stack.Navigator>
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };

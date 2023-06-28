@@ -16,6 +16,6 @@ export const loginUser = async ({mail, password}: TOnLoginProps) => {
     if (err instanceof FirebaseError) {
       throw new Error(err.message);
     }
-    throw new Error('Ups, coś się wyjebało');
+    throw new Error();
   }
 };
