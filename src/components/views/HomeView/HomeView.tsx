@@ -1,9 +1,9 @@
 import {View, Text} from 'react-native';
 
-export const MainPage = () => {
+export const HomeView = () => {
   return (
     <View>
-      <Text>hello world!</Text>
+      <Text>HomeView</Text>
     </View>
   );
 };
