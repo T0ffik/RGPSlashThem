@@ -11,7 +11,7 @@ import {
   RootStackParamList,
   WelcomeStackParamList,
 } from '../../../static/types/routeTypes';
-import {StackNavigationProp, createStackNavigator} from '@react-navigation/stack';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 const Tab = createNativeStackNavigator<WelcomeStackParamList>();
 
@@ -39,7 +39,7 @@ export const MainPage = () => {
             name={ROUTES.MAIN}
             options={{animation: 'fade'}}
             component={Main}
-            initialParams={{setIndex: setIndex}}
+            initialParams={{setIndex}}
           />
           <Tab.Screen
             name={ROUTES.LOGIN}
@@ -51,7 +51,7 @@ export const MainPage = () => {
             name={ROUTES.REGISTER}
             options={{animation: 'fade'}}
             component={RegisterForm}
-            initialParams={{setIndex: setIndex}}
+            initialParams={{setIndex}}
           />
         </Tab.Navigator>
       </View>

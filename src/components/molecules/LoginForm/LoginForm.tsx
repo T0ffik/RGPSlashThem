@@ -9,25 +9,35 @@ import {useFocusEffect} from '@react-navigation/native';
 import {useCallback} from 'react';
 import {StackScreenProps} from '@react-navigation/stack';
 import {WelcomeStackParamList} from '~/static/types/routeTypes';
+import {useMachine} from '@xstate/react';
+import {userMachine} from '../../../xstate/User/userMachine';
 
 type TLoginFormProps = StackScreenProps<WelcomeStackParamList, 'Login', 'MainStack'>;
 
 type FormValues = {
-  mail: string;
+  email: string;
   password: string;
 };
 export const LoginForm = ({navigation, route}: TLoginFormProps) => {
+  const [state, send] = useMachine(userMachine, {
+    services: {
+      loadUser: async (context, event) => {
+        const data = await loginUser(event.value);
+        return data;
+      },
+    },
+  });
   const {setIndex} = route.params;
   const {
     control,
     handleSubmit,
     formState: {errors},
   } = useForm<FormValues>({
-    defaultValues: {mail: '', password: ''},
+    defaultValues: {email: '', password: ''},
     resolver: yupResolver(LogInSchema),
   });
   const onSubmit = (data: FormValues) => {
-    loginUser(data);
+    send({type: 'Load', value: data});
   };
 
   useFocusEffect(
@@ -48,10 +58,10 @@ export const LoginForm = ({navigation, route}: TLoginFormProps) => {
               placeholder="Email"
             />
           )}
-          name="mail"
+          name="email"
         />
-        {errors.mail && (
-          <CustomText variant={Variatns.ERROR} text={errors.mail.message} />
+        {errors.email && (
+          <CustomText variant={Variatns.ERROR} text={errors.email.message} />
         )}
       </View>
       <View style={styles.inputArea}>
