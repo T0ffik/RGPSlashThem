@@ -1,17 +1,16 @@
-import auth from '@react-native-firebase/auth';
+import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {FirebaseError} from '@firebase/util';
-import firestore from '@react-native-firebase/firestore';
+import firestore, {FirebaseFirestoreTypes} from '@react-native-firebase/firestore';
+import {TUser} from '../../../xstate/User/types';
 
 type TOnLoginProps = {
-  mail: string;
+  email: string;
   password: string;
 };
 
-export const loginUser = async ({mail, password}: TOnLoginProps) => {
+export const loginUser = async ({email, password}: TOnLoginProps) => {
   try {
-    const data = await auth().signInWithEmailAndPassword(mail, password);
-    const user = await firestore().collection('Users').doc(data.user.uid).get();
-    return user.data();
+    await auth().signInWithEmailAndPassword(email, password);
   } catch (err) {
     if (err instanceof FirebaseError) {
       throw new Error(err.message);
