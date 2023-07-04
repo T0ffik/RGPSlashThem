@@ -24,7 +24,7 @@ export const Navigation = () => {
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
-          tabBarStyle: {display: currentUser === null ? 'none' : 'flex'},
+          tabBarStyle: {display: !currentUser ? 'none' : 'flex'},
         }}
       >
         {currentUser === null ? (
