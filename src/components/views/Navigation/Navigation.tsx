@@ -1,10 +1,10 @@
-import {HomeView, MainPage} from '../index';
+import {Calendar, Cards, HomeView, MainPage, Profile, Wiki} from '../index';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {ROUTES, RootStackParamList} from '../../../static/types/routeTypes';
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {useState, useEffect} from 'react';
+import {TabBar} from '../../index';
 
 const Tab = createBottomTabNavigator<RootStackParamList>();
 
@@ -21,18 +21,25 @@ export const Navigation = () => {
   }, []);
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={{
-          headerShown: false,
-          tabBarStyle: {display: currentUser === null ? 'none' : 'flex'},
-        }}
-      >
-        {currentUser === null ? (
-          <Tab.Screen name={ROUTES.WELCOME} component={MainPage} />
-        ) : (
+      {!currentUser ? (
+        <MainPage />
+      ) : (
+        <Tab.Navigator
+          screenOptions={{
+            headerShown: false,
+            tabBarStyle: {display: !currentUser ? 'none' : 'flex'},
+          }}
+          tabBar={props => <TabBar {...props} />}
+          initialRouteName={ROUTES.HOME}
+          id="RootStack"
+        >
+          <Tab.Screen name={ROUTES.WIKI} component={Wiki} />
+          <Tab.Screen name={ROUTES.CALENDAR} component={Calendar} />
           <Tab.Screen name={ROUTES.HOME} component={HomeView} />
-        )}
-      </Tab.Navigator>
+          <Tab.Screen name={ROUTES.CARDS} component={Cards} />
+          <Tab.Screen name={ROUTES.PROFILE} component={Profile} />
+        </Tab.Navigator>
+      )}
     </NavigationContainer>
   );
 };

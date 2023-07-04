@@ -19,14 +19,6 @@ type FormValues = {
   password: string;
 };
 export const LoginForm = ({navigation, route}: TLoginFormProps) => {
-  const [state, send] = useMachine(userMachine, {
-    services: {
-      loadUser: async (context, event) => {
-        const data = await loginUser(event.value);
-        return data;
-      },
-    },
-  });
   const {setIndex} = route.params;
   const {
     control,
@@ -37,7 +29,7 @@ export const LoginForm = ({navigation, route}: TLoginFormProps) => {
     resolver: yupResolver(LogInSchema),
   });
   const onSubmit = (data: FormValues) => {
-    send({type: 'Load', value: data});
+    loginUser(data);
   };
 
   useFocusEffect(

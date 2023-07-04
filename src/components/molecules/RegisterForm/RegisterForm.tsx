@@ -8,7 +8,7 @@ import {registerUser} from '../../../api';
 import {useFocusEffect} from '@react-navigation/native';
 import {useCallback} from 'react';
 import {StackScreenProps} from '@react-navigation/stack';
-import {RootStackParamList, WelcomeStackParamList} from '~/static/types/routeTypes';
+import {WelcomeStackParamList} from '~/static/types/routeTypes';
 
 type TRagisterFormProps = StackScreenProps<
   WelcomeStackParamList,
