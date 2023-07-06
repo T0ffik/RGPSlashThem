@@ -7,10 +7,12 @@ import {GlobalStateContext} from 'Components/molecules';
 export const HomeView = () => {
   const globalServices = useContext(GlobalStateContext);
   //@ts-ignore
-  const [, send] = useActor(globalServices.userService);
-  const id = auth().currentUser?.uid as string;
+  const [_, send] = useActor(globalServices.userService);
+  const id = auth().currentUser?.uid;
   useEffect(() => {
-    send({type: 'Load', value: {id}});
+    if (id) {
+      send({type: 'Load', value: {id}});
+    }
   }, []);
   return (
     <View>

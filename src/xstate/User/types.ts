@@ -8,4 +8,4 @@ export type TUser = {
   id: string;
   campains?: string[];
 };
-export type State = TUser;
+export type UserState = TUser;

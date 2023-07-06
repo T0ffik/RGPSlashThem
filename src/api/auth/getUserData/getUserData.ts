@@ -10,6 +10,6 @@ export const getUserData = async (context: TUser) => {
     if (err instanceof FirebaseError) {
       throw new Error(err.message);
     }
-    throw new Error();
+    throw new Error('coś poszło nie tak');
   }
 };
