@@ -1,10 +1,17 @@
-import {Calendar, Cards, HomeView, MainPage, Profile, Wiki} from '../index';
 import {NavigationContainer} from '@react-navigation/native';
-import {ROUTES, RootStackParamList} from '../../../static/types/routeTypes';
+import {ROUTES, RootStackParamList} from 'Static/types/routeTypes';
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {useState, useEffect} from 'react';
-import {TabBar} from '../../index';
+import {
+  TabBar,
+  Calendar,
+  Cards,
+  HomeView,
+  MainPage,
+  Profile,
+  Wiki,
+} from 'Components/index';
 
 const Tab = createBottomTabNavigator<RootStackParamList>();
 

@@ -1,6 +1,6 @@
 import firestore from '@react-native-firebase/firestore';
-import {TUser} from '../../../xstate/User/types';
-import {COLLECTIONS} from '../../../static/consts/firebase';
+import {TUser} from 'Xstate/User/types';
+import {COLLECTIONS} from 'Static/consts/firebase';
 import {FirebaseError} from '@firebase/util';
 export const getUserData = async (context: TUser) => {
   try {

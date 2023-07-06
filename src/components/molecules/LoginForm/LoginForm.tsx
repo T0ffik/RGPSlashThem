@@ -1,16 +1,14 @@
 import {View} from 'react-native';
-import {CustomButton, Input, CustomText, PasswordInput, Variatns} from '../..';
+import {CustomButton, Input, CustomText, PasswordInput, Variatns} from 'Components/index';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {styles} from './styles';
-import {loginUser} from '../../../api';
+import {loginUser} from 'Api/index';
 import {useForm, Controller} from 'react-hook-form';
-import {LogInSchema} from '../../../validation';
+import {LogInSchema} from 'Validation/loginValidation';
 import {useFocusEffect} from '@react-navigation/native';
 import {useCallback} from 'react';
 import {StackScreenProps} from '@react-navigation/stack';
-import {WelcomeStackParamList} from '~/static/types/routeTypes';
-import {useMachine} from '@xstate/react';
-import {userMachine} from '../../../xstate/User/userMachine';
+import {WelcomeStackParamList} from 'Static/types/routeTypes';
 
 type TLoginFormProps = StackScreenProps<WelcomeStackParamList, 'Login', 'MainStack'>;
 

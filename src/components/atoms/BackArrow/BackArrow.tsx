@@ -1,5 +1,5 @@
 import {Pressable} from 'react-native';
-import BackArrowIcon from '../../../static/icons/BackArrow.svg';
+import BackArrowIcon from 'Static/icons/BackArrow.svg';
 import {styles} from './styles';
 
 type TBackArrowProps = {

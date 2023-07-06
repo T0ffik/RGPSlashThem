@@ -1,7 +1,7 @@
 import {View, Text, Pressable} from 'react-native';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import {styles} from './styles';
-import {NavIcon} from '../../../components/atoms';
+import {NavIcon} from 'Components/index';
 
 export const TabBar = ({state, navigation}: BottomTabBarProps) => {
   return (

@@ -1,12 +1,8 @@
 import {useCallback} from 'react';
-import {CustomButton} from '../../atoms';
+import {CustomButton} from 'Components/index';
 import {View} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
-import {
-  ROUTES,
-  RootStackParamList,
-  WelcomeStackParamList,
-} from '../../../static/types/routeTypes';
+import {ROUTES, WelcomeStackParamList} from 'Static/types/routeTypes';
 import {StackScreenProps} from '@react-navigation/stack';
 import {styles} from './styles';
 

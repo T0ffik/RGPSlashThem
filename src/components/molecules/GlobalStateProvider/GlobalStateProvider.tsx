@@ -1,6 +1,6 @@
 import {createContext} from 'react';
 import {useInterpret} from '@xstate/react';
-import {userMachine} from '../../../xstate/User/userMachine';
+import {userMachine} from 'Xstate/User/userMachine';
 import {ViewProps} from 'react-native';
 
 export const GlobalStateContext = createContext({});

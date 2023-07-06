@@ -1,5 +1,5 @@
 import {Text, View} from 'react-native';
-import Logo from '../../../static/imgs/rst_logo.svg';
+import Logo from 'Static/imgs/rst_logo.svg';
 import {styles} from './style';
 import {
   BackArrow,
@@ -7,16 +7,12 @@ import {
   LoginForm,
   Main,
   RegisterForm,
-} from '../../../components';
+} from 'Components/index';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useNavigation} from '@react-navigation/native';
-import {globalStyles} from '../../../utils/globalStyles';
+import {globalStyles} from 'Utils/globalStyles';
 import {useContext, useState} from 'react';
-import {
-  ROUTES,
-  RootStackParamList,
-  WelcomeStackParamList,
-} from '../../../static/types/routeTypes';
+import {ROUTES, WelcomeStackParamList} from 'Static/types/routeTypes';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useActor} from '@xstate/react';
 

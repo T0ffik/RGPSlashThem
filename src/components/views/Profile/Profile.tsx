@@ -3,7 +3,7 @@ import firestore from '@react-native-firebase/firestore';
 import {useActor} from '@xstate/react';
 import {View, Text, Button} from 'react-native';
 import {useContext} from 'react';
-import {GlobalStateContext} from '../../../components/molecules';
+import {GlobalStateContext} from 'Components/molecules';
 
 export const Profile = () => {
   const globalServices = useContext(GlobalStateContext);
