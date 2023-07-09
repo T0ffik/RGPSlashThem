@@ -20,7 +20,7 @@ const Stack = createNativeStackNavigator<WelcomeStackParamList>();
 
 export const MainPage = () => {
   const globalServices = useContext(GlobalStateContext);
-  //@ts-ignore
+
   const [state] = useActor(globalServices.userService);
   const [index, setIndex] = useState(0);
   const navigation = useNavigation<StackNavigationProp<WelcomeStackParamList>>();
