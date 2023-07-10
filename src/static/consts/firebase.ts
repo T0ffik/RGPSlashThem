@@ -1,0 +1,15 @@
+export enum COLLECTIONS {
+  AMMUNITION = 'Ammunition',
+  ANIMALSANDVEHICLES = 'AnimalsAndVehicles',
+  ARMOUR = 'Armour',
+  BOOKS = 'Books',
+  CLOTHES = 'Clothes',
+  DRUGSANDPOISONS = 'DrugsAndPoisons',
+  FOOD = 'Food',
+  HERBSANDPOTIONS = 'HerbsAndPotions',
+  MALEWEAPONS = 'MaleWeapons',
+  MISSILEWEAPONS = 'MissileWeapons',
+  STORAGE = 'Storage',
+  TOOLS = 'Tools',
+  USERS = 'Users',
+}

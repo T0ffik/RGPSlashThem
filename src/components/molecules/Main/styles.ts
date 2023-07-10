@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {globalStyles} from '../../../utils/globalStyles';
+import {globalStyles} from 'Utils/globalStyles';
 export const styles = StyleSheet.create({
   wrapper: {
     ...globalStyles.navigationWrapper,

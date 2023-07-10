@@ -1,9 +1,9 @@
 import {TextInput, ImageBackground, Pressable, TextInputProps} from 'react-native';
 import {styles} from './styles';
 import {useState} from 'react';
-import IconEyeOn from '../../../static/icons/IconEyeOn.svg';
-import IconEyeOff from '../../../static/icons/IconEyeOff.svg';
-import {colors} from '../../../static/consts/colors';
+import IconEyeOn from 'Static/icons/IconEyeOn.svg';
+import IconEyeOff from 'Static/icons/IconEyeOff.svg';
+import {colors} from 'Static/consts/colors';
 
 type TPasswordInputProps = TextInputProps & {
   additionalStyles?: any;

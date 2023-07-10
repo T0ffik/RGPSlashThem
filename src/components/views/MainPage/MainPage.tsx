@@ -1,23 +1,29 @@
 import {Text, View} from 'react-native';
-import Logo from '../../../static/imgs/rst_logo.svg';
+import Logo from 'Static/imgs/rst_logo.svg';
 import {styles} from './style';
-import {BackArrow, LoginForm, Main, RegisterForm} from '../../../components';
+import {
+  BackArrow,
+  GlobalStateContext,
+  LoginForm,
+  Main,
+  RegisterForm,
+} from 'Components/index';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useNavigation} from '@react-navigation/native';
-import {globalStyles} from '../../../utils/globalStyles';
-import {useState} from 'react';
-import {
-  ROUTES,
-  RootStackParamList,
-  WelcomeStackParamList,
-} from '../../../static/types/routeTypes';
+import {globalStyles} from 'Utils/globalStyles';
+import {useContext, useState} from 'react';
+import {ROUTES, WelcomeStackParamList} from 'Static/types/routeTypes';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {useActor} from '@xstate/react';
 
-const Tab = createNativeStackNavigator<WelcomeStackParamList>();
+const Stack = createNativeStackNavigator<WelcomeStackParamList>();
 
 export const MainPage = () => {
+  const globalServices = useContext(GlobalStateContext);
+
+  const [state] = useActor(globalServices.userService);
   const [index, setIndex] = useState(0);
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const navigation = useNavigation<StackNavigationProp<WelcomeStackParamList>>();
 
   return (
     <View style={styles.main}>
@@ -29,31 +35,31 @@ export const MainPage = () => {
       <Logo width={340} height={75} />
       <Text style={styles.logoSubText}>Dla ludzi i innych stworów</Text>
       <View style={globalStyles.navigationWrapper}>
-        <Tab.Navigator
+        <Stack.Navigator
           screenOptions={{
             headerShown: false,
           }}
           id="MainStack"
         >
-          <Tab.Screen
+          <Stack.Screen
             name={ROUTES.MAIN}
             options={{animation: 'fade'}}
             component={Main}
             initialParams={{setIndex}}
           />
-          <Tab.Screen
+          <Stack.Screen
             name={ROUTES.LOGIN}
             options={{animation: 'fade'}}
             component={LoginForm}
             initialParams={{setIndex}}
           />
-          <Tab.Screen
+          <Stack.Screen
             name={ROUTES.REGISTER}
             options={{animation: 'fade'}}
             component={RegisterForm}
             initialParams={{setIndex}}
           />
-        </Tab.Navigator>
+        </Stack.Navigator>
       </View>
     </View>
   );

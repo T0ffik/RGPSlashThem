@@ -6,6 +6,10 @@ export enum ROUTES {
   LOGIN = 'Login',
   REGISTER = 'Register',
   HOME = 'Home',
+  WIKI = 'Wiki',
+  CALENDAR = 'Calendar',
+  CARDS = 'Cards',
+  PROFILE = 'Profile',
 }
 
 export type WelcomeStackParamList = {
@@ -20,7 +24,11 @@ export type WelcomeStackParamList = {
   };
 };
 
-export type RootStackParamList = WelcomeStackParamList & {
+export type RootStackParamList = {
   Welcome: undefined;
   Home: undefined;
+  Wiki: undefined;
+  Calendar: undefined;
+  Cards: undefined;
+  Profile: undefined;
 };

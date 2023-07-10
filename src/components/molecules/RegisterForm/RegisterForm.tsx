@@ -1,14 +1,14 @@
 import {View} from 'react-native';
-import {CustomButton, Input, CustomText, PasswordInput, Variatns} from '../..';
-import {SignInSchema} from '../../../validation';
+import {CustomButton, Input, CustomText, PasswordInput, Variatns} from 'Components/index';
+import {SignInSchema} from 'Validation/registerValidation';
 import {styles} from './styles';
 import {useForm, Controller} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
-import {registerUser} from '../../../api';
+import {registerUser} from 'Api/index';
 import {useFocusEffect} from '@react-navigation/native';
 import {useCallback} from 'react';
 import {StackScreenProps} from '@react-navigation/stack';
-import {RootStackParamList, WelcomeStackParamList} from '~/static/types/routeTypes';
+import {WelcomeStackParamList} from 'Static/types/routeTypes';
 
 type TRagisterFormProps = StackScreenProps<
   WelcomeStackParamList,

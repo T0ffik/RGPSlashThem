@@ -1,12 +1,6 @@
 import {Text} from 'react-native';
 import {styles} from './styles';
-import Animated, {
-  FadeIn,
-  FadeInUp,
-  FadeOutUp,
-  SlideInUp,
-  SlideOutUp,
-} from 'react-native-reanimated';
+import Animated, {FadeInUp, FadeOutUp} from 'react-native-reanimated';
 import {useMemo} from 'react';
 
 export enum Variatns {
