@@ -1,9 +1,10 @@
 import {View, Text} from 'react-native';
+import {BackgroundImage} from '../../molecules';
 
 export const Cards = () => {
   return (
-    <View>
+    <BackgroundImage>
       <Text>Cards</Text>
-    </View>
+    </BackgroundImage>
   );
 };

@@ -25,6 +25,7 @@
     "react-hook-form": "7.45.0",
     "react-native": "0.71.10",
     "react-native-asset": "2.1.1",
+    "react-native-keyboard-aware-scroll-view": "0.9.5",
     "react-native-reanimated": "3.3.0",
     "react-native-safe-area-context": "4.6.3",
     "react-native-screens": "3.22.0",
