@@ -1,6 +1,6 @@
 import {TextInput, ImageBackground, TextInputProps} from 'react-native';
 import {styles} from './styles';
-import {colors} from '../../../static/consts/colors';
+import {colors} from 'Static/consts/colors';
 
 type TInputProps = TextInputProps & {
   additionalStyles?: any;

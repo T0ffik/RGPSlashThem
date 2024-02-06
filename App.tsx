@@ -6,10 +6,14 @@
  */
 
 import React from 'react';
-import {Navigation} from './src/components';
+import {GlobalStateProvider, Navigation} from './src/components';
 
 function App(): JSX.Element {
-  return <Navigation />;
+  return (
+    <GlobalStateProvider>
+      <Navigation />
+    </GlobalStateProvider>
+  );
 }
 
 export default App;
