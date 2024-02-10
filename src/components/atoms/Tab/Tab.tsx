@@ -2,13 +2,15 @@ import {Pressable} from 'react-native';
 import {NavIcon} from '../NavIcon';
 import {BottomTabNavigationEventMap} from '@react-navigation/bottom-tabs';
 import {ParamListBase, TabNavigationState} from '@react-navigation/routers';
-import {NavigationHelpers} from '@react-navigation/core';
+import {NavigationHelpers, BaseRouter} from '@react-navigation/core';
 import {styles} from './styles';
+import {ROUTES} from '../../../static/types/routeTypes';
+import {RouteProp} from '@react-navigation/native';
 
 type TTabProps = {
   state: TabNavigationState<ParamListBase>;
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
-  route: any;
+  route: RouteProp<ParamListBase>;
   index: number;
 };
 export const Tab = ({state, index, navigation, route}: TTabProps) => {
