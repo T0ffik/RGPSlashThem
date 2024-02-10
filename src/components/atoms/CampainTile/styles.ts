@@ -19,13 +19,6 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.grey,
     marginRight: 20,
   },
-  placeholder: {
-    height: 86,
-    width: 86,
-    borderRadius: 5,
-    backgroundColor: colors.grey,
-    marginRight: 20,
-  },
   infoWrapper: {
     height: '100%',
     display: 'flex',

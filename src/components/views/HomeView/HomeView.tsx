@@ -1,5 +1,4 @@
 import {useActor} from '@xstate/react';
-import {View, Text} from 'react-native';
 import auth from '@react-native-firebase/auth';
 import {useContext, useEffect} from 'react';
 import {BackgroundImage, GlobalStateContext, Menu} from 'Components/molecules';
@@ -9,7 +8,7 @@ export const HomeView = () => {
   const globalServices = useContext(GlobalStateContext);
   //@ts-ignore
   const [_, send] = useActor(globalServices.userService);
-  const id = auth().currentUser?.uid as string;
+  const id = auth().currentUser?.uid;
   useEffect(() => {
     send({type: 'Load', value: {id}});
   }, []);

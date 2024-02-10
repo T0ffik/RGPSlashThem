@@ -1,8 +1,6 @@
-import {ImageBackground} from 'react-native';
+import {ImageBackground, ImageBackgroundProps} from 'react-native';
 import {styles} from './styles';
-type TBackgroundImageProps = {
-  children: any;
-};
+type TBackgroundImageProps = ImageBackgroundProps;
 export const BackgroundImage = ({children}: TBackgroundImageProps) => {
   const source = require('../../../static/imgs/BackgroundImage.png');
   return (

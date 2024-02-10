@@ -1,4 +1,4 @@
-import {KeyboardAvoidingView, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import Logo from 'Static/imgs/rst_logo.svg';
 import {styles} from './style';
 import {

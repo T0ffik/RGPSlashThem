@@ -1,5 +1,6 @@
-import {View, Text, Image, Pressable, PressableProps} from 'react-native';
+import {View, Text, Image, Pressable} from 'react-native';
 import {styles} from './styles';
+import {If} from '../If';
 
 type TCampainTileProps = {};
 
@@ -9,17 +10,20 @@ export const CampainTile = ({}: TCampainTileProps) => {
   const dupa = require('../../../static/imgs/BackgroundImage.png');
   return (
     <Pressable style={styles.tileWrapper}>
-      {isImage ? (
-        <Image source={dupa} style={styles.image} onError={e => console.log(e)} />
-      ) : (
-        <View style={styles.placeholder} />
-      )}
+      <Image
+        source={dupa}
+        style={styles.image}
+        defaultSource={dupa}
+        onError={e => console.log(e)}
+      />
       <View style={styles.infoWrapper}>
         <Text style={styles.title}>CampainTitle</Text>
         <Text style={styles.info}>CharacterName</Text>
         <Text style={styles.info}>02.08.2023</Text>
       </View>
-      {isGM && <Text style={styles.gmInfo}>GM</Text>}
+      <If condition={isGM}>
+        <Text style={styles.gmInfo}>GM</Text>
+      </If>
     </Pressable>
   );
 };
