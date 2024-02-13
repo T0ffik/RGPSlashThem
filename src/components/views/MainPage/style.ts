@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
   main: {
     backgroundColor: colors.white,
     width: '100%',
-    height: '100%',
+    height: '150%',
     display: 'flex',
     alignItems: 'center',
     paddingTop: 245,

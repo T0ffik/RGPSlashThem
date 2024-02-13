@@ -1,8 +1,8 @@
 import {useActor} from '@xstate/react';
-import {View, Text} from 'react-native';
 import auth from '@react-native-firebase/auth';
 import {useContext, useEffect} from 'react';
-import {GlobalStateContext} from 'Components/molecules';
+import {BackgroundImage, GlobalStateContext, Menu} from 'Components/molecules';
+import {CampainTile, ScreenTitle} from '../../atoms';
 
 export const HomeView = () => {
   const globalServices = useContext(GlobalStateContext);
@@ -10,13 +10,13 @@ export const HomeView = () => {
   const [_, send] = useActor(globalServices.userService);
   const id = auth().currentUser?.uid;
   useEffect(() => {
-    if (id) {
-      send({type: 'Load', value: {id}});
-    }
+    send({type: 'Load', value: {id}});
   }, []);
   return (
-    <View>
-      <Text>HomeView</Text>
-    </View>
+    <BackgroundImage>
+      <ScreenTitle>Kampanie</ScreenTitle>
+      <CampainTile />
+      <Menu />
+    </BackgroundImage>
   );
 };
