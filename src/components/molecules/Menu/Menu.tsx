@@ -1,7 +1,8 @@
-import {View, Text} from 'react-native';
-import React, {useState} from 'react';
+import {View} from 'react-native';
+import {useState} from 'react';
 import {MenuIcon, MenuItem} from 'Components/atoms';
 import {styles} from './styles';
+import {If} from '../../atoms/If';
 
 export const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,13 +12,13 @@ export const Menu = () => {
   return (
     <View style={styles.menuWrapper}>
       <MenuIcon onPress={onPress} clicked={isOpen} />
-      {isOpen && (
+      <If condition={isOpen}>
         <>
           <MenuItem title="Dołącz" />
           <MenuItem title="Utwórz" />
           <MenuItem title="Edytuj" />
         </>
-      )}
+      </If>
     </View>
   );
 };

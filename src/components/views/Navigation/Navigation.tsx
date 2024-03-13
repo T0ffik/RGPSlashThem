@@ -3,15 +3,8 @@ import {ROUTES, RootStackParamList} from 'Static/types/routeTypes';
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {useState, useEffect} from 'react';
-import {
-  TabBar,
-  Calendar,
-  Cards,
-  HomeView,
-  MainPage,
-  Profile,
-  Wiki,
-} from 'Components/index';
+import {MainPage, CustomTabIcon} from 'Components/index';
+import {tabRoutes} from '../../../static/consts/routes';
 
 const Tab = createBottomTabNavigator<RootStackParamList>();
 
@@ -36,15 +29,22 @@ export const Navigation = () => {
             headerShown: false,
             tabBarStyle: {display: !currentUser ? 'none' : 'flex'},
           }}
-          tabBar={props => <TabBar {...props} />}
           initialRouteName={ROUTES.HOME}
           id="RootStack"
         >
-          <Tab.Screen name={ROUTES.WIKI} component={Wiki} />
-          <Tab.Screen name={ROUTES.CALENDAR} component={Calendar} />
-          <Tab.Screen name={ROUTES.HOME} component={HomeView} />
-          <Tab.Screen name={ROUTES.CARDS} component={Cards} />
-          <Tab.Screen name={ROUTES.PROFILE} component={Profile} />
+          {tabRoutes.map(route => (
+            <Tab.Screen
+              name={route.route as keyof RootStackParamList}
+              key={route.route}
+              component={route.component}
+              options={{
+                tabBarIcon: ({focused}) => (
+                  <CustomTabIcon route={route.route} isFocused={focused} />
+                ),
+                tabBarShowLabel: false,
+              }}
+            />
+          ))}
         </Tab.Navigator>
       )}
     </NavigationContainer>
