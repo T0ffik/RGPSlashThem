@@ -3,7 +3,7 @@ import firestore from '@react-native-firebase/firestore';
 import {useActor} from '@xstate/react';
 import {View, Text, Button} from 'react-native';
 import {useContext} from 'react';
-import {GlobalStateContext} from 'Components/molecules';
+import {BackgroundImage, GlobalStateContext} from 'Components/molecules';
 
 export const Profile = () => {
   const globalServices = useContext(GlobalStateContext);
@@ -21,7 +21,7 @@ export const Profile = () => {
       .catch(err => alert(`coś się wyjebało: ${err.message}`));
   };
   return (
-    <View>
+    <BackgroundImage>
       <Text>Profile</Text>
       <Text>id:{state.context.id}</Text>
       <Text>login:{state.context.login}</Text>
@@ -42,6 +42,6 @@ export const Profile = () => {
           deleteUser();
         }}
       />
-    </View>
+    </BackgroundImage>
   );
 };

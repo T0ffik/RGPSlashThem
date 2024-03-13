@@ -23,8 +23,7 @@ export const NavIcon = ({routeName, isFocused}: TNavIconProps) => {
     case ROUTES.CARDS:
       return <Cards fill={color} />;
     case ROUTES.PROFILE:
-      return <Profile fill={color} />;
     default:
-      return;
+      return <Profile fill={color} />;
   }
 };
