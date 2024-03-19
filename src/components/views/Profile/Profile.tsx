@@ -4,8 +4,10 @@ import {useActor} from '@xstate/react';
 import {View, Text, Button} from 'react-native';
 import {useContext} from 'react';
 import {BackgroundImage, GlobalStateContext} from 'Components/molecules';
+import {useTranslation} from 'react-i18next';
 
 export const Profile = () => {
+  const {t, i18n} = useTranslation();
   const globalServices = useContext(GlobalStateContext);
   //@ts-ignore
   const [state, send] = useActor(globalServices.userService);
@@ -20,9 +22,12 @@ export const Profile = () => {
       })
       .catch(err => alert(`coś się wyjebało: ${err.message}`));
   };
+  console.log(i18n.languages);
+  console.log(i18n.language);
+  console.log(i18n.store);
   return (
     <BackgroundImage>
-      <Text>Profile</Text>
+      <Text>{t('Profile')}</Text>
       <Text>id:{state.context.id}</Text>
       <Text>login:{state.context.login}</Text>
       <Text>mail:{state.context.mail}</Text>
@@ -42,6 +47,8 @@ export const Profile = () => {
           deleteUser();
         }}
       />
+      <Button title={'pl'} onPress={() => i18n.changeLanguage('pl')} />
+      <Button title={'en'} onPress={() => i18n.changeLanguage('en')} />
     </BackgroundImage>
   );
 };

@@ -3,9 +3,11 @@ import auth from '@react-native-firebase/auth';
 import {useContext, useEffect} from 'react';
 import {BackgroundImage, GlobalStateContext, Menu} from 'Components/molecules';
 import {CampainTile, ScreenTitle} from '../../atoms';
+import {useTranslation} from 'react-i18next';
 
 export const HomeView = () => {
   const globalServices = useContext(GlobalStateContext);
+  const {t} = useTranslation();
   //@ts-ignore
   const [_, send] = useActor(globalServices.userService);
   const id = auth().currentUser?.uid;
@@ -14,7 +16,7 @@ export const HomeView = () => {
   }, []);
   return (
     <BackgroundImage>
-      <ScreenTitle>Kampanie</ScreenTitle>
+      <ScreenTitle>{t('Campains')}</ScreenTitle>
       <CampainTile />
       <Menu />
     </BackgroundImage>
